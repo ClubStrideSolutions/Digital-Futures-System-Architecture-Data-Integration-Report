@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Futures Initiative - System Architecture</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+            background: #0f0f23;
+            color: #e0e0e0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            padding: 40px 0;
+            text-align: center;
+            border-bottom: 3px solid #00d4ff;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #00d4ff;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            color: #a0a0a0;
+            font-size: 1.1rem;
+        }
+
+        .author-info {
+            margin-top: 20px;
+            color: #00d4ff;
+            font-size: 0.9rem;
+        }
+
+        .section {
+            background: #1a1a2e;
+            border: 1px solid #2a2a3e;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            color: #00d4ff;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #2a2a3e;
+        }
+
+        h3 {
+            color: #66d9ff;
+            font-size: 1.3rem;
+            margin: 20px 0 15px;
+        }
+
+        .component-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .component-card {
+            background: #16213e;
+            border: 1px solid #00d4ff;
+            border-radius: 8px;
+            padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .component-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .component-card h4 {
+            color: #00d4ff;
+            margin-bottom: 10px;
+        }
+
+        .flow-diagram {
+            background: #0a0a1a;
+            border: 2px solid #00d4ff;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+
+        .flow-box {
+            background: #16213e;
+            border: 1px solid #66d9ff;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            text-align: center;
+            position: relative;
+        }
+
+        .arrow {
+            color: #00d4ff;
+            font-size: 1.5rem;
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .pipeline-section {
+            background: #0a0a1a;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #00d4ff;
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .kpi-card {
+            background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+            border: 1px solid #00d4ff;
+            border-radius: 10px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #00d4ff, #66d9ff);
+        }
+
+        .kpi-card h4 {
+            color: #00d4ff;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+
+        .kpi-card ul {
+            list-style: none;
+        }
+
+        .kpi-card li {
+            padding: 5px 0;
+            color: #b0b0b0;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .kpi-card li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #00d4ff;
+        }
+
+        .step-container {
+            background: #16213e;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 4px solid #00d4ff;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: #00d4ff;
+            color: #0a0a1a;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .tech-tag {
+            background: #00d4ff;
+            color: #0a0a1a;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .dashboard-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .feature-box {
+            background: #0a0a1a;
+            border: 1px solid #2a2a3e;
+            padding: 20px;
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
+        }
+
+        .feature-box:hover {
+            border-color: #00d4ff;
+        }
+
+        .feature-box h5 {
+            color: #66d9ff;
+            margin-bottom: 10px;
+        }
+
+        .manual-oversight {
+            background: #1a0a0a;
+            border: 2px solid #ff6b6b;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+
+        .manual-oversight h3 {
+            color: #ff6b6b;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            margin-top: 50px;
+            border-top: 1px solid #2a2a3e;
+            color: #a0a0a0;
+        }
+
+        code {
+            background: #0a0a1a;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #66d9ff;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Digital Futures Initiative</h1>
+        <p class="subtitle">Integrated System Architecture & Data Flow</p>
+        <div class="author-info">
+            <p>System Design Completed by: Javier Barrios</p>
+            <p>Youth Program Coordinator, Systems & Data Architect</p>
+            <p>Date: June 18, 2025</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- System Integration Overview -->
+        <section class="section">
+            <h2>System Integration Overview</h2>
+            <p>The Digital Futures Initiative operates through a unified digital ecosystem that seamlessly connects youth recruitment, training, internship placement, and performance tracking. This integrated platform combines multiple technologies to create a scalable workforce development pipeline.</p>
+        </section>
+
+        <!-- Core Platform Components -->
+        <section class="section">
+            <h2>Core Platform Components</h2>
+            <div class="component-grid">
+                <div class="component-card">
+                    <h4>Smart QR Code Entry System</h4>
+                    <p>Initial contact and tracking</p>
+                </div>
+                <div class="component-card">
+                    <h4>Club Stride Website Application</h4>
+                    <p>Primary intake portal</p>
+                </div>
+                <div class="component-card">
+                    <h4>Alumni-Network Membership Portal</h4>
+                    <p>Central dashboard and profile management</p>
+                </div>
+                <div class="component-card">
+                    <h4>Video Course eLearning Platform</h4>
+                    <p>Modular course delivery with certificates</p>
+                </div>
+                <div class="component-card">
+                    <h4>AI-Enhanced Tools</h4>
+                    <p>Resume builder and capstone evaluation</p>
+                </div>
+                <div class="component-card">
+                    <h4>Google Classroom Integration</h4>
+                    <p>Learning management and content delivery</p>
+                </div>
+                <div class="component-card">
+                    <h4>DocuSeal API</h4>
+                    <p>Automated document workflow</p>
+                </div>
+                <div class="component-card">
+                    <h4>Zoom Integration</h4>
+                    <p>Embedded virtual instruction with attendance tracking</p>
+                </div>
+                <div class="component-card">
+                    <h4>Automated Reporting Dashboard</h4>
+                    <p>Real-time KPI visualization</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Unified System Architecture -->
+        <section class="section">
+            <h2>Unified System Architecture</h2>
+            <div class="flow-diagram">
+                <div class="flow-box">[QR Code Scan] → [Website Application] → [Alumni Portal Registration]</div>
+                <div class="arrow">↓</div>
+                <div class="flow-box">[DocuSeal Document Workflow] ← [Profile Completion Check]</div>
+                <div class="arrow">↓</div>
+                <div class="flow-box">[Google Classroom Auto-Enrollment] → [eLearning Platform Access]</div>
+                <div class="arrow">↓</div>
+                <div class="flow-box">[Course Progress Tracking] → [AI Capstone Review] → [Certificate Generation]</div>
+                <div class="arrow">↓</div>
+                <div class="flow-box">[Resume Builder] → [Portfolio Creation] → [Internship Matching]</div>
+                <div class="arrow">↓</div>
+                <div class="flow-box">[Host Placement] → [Weekly Reporting] → [Final Evaluation]</div>
+                <div class="arrow">↓</div>
+                <div class="flow-box">[Automated KPI Dashboard]</div>
+            </div>
+        </section>
+
+        <!-- Data Integration and Reporting Flow -->
+        <section class="section">
+            <h2>Data Integration and Reporting Flow</h2>
+            
+            <h3>1. Data Collection Architecture</h3>
+            <div class="pipeline-section">
+                <h4>Primary Data Collection Points:</h4>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li>• <strong>QR Code Scanner</strong> → Location, time, campaign effectiveness tracking</li>
+                    <li>• <strong>Website Application</strong> → Complete applicant information via Google Form</li>
+                    <li>• <strong>Alumni Portal</strong> → MySQL Database (profile data, engagement metrics)</li>
+                    <li>• <strong>eLearning Platform</strong> → Course progress, quiz scores, completion rates</li>
+                    <li>• <strong>Google Classroom</strong> → Assignment submissions, participation data via Google API</li>
+                    <li>• <strong>DocuSeal</strong> → Document completion status and timestamps via API</li>
+                    <li>• <strong>Zoom Integration</strong> → Attendance logs embedded in Alumni Portal</li>
+                    <li>• <strong>Weekly Reports</strong> → Intern and host progress updates</li>
+                </ul>
+            </div>
+
+            <h3>2. Data Transfer Protocols</h3>
+            <div class="flow-diagram">
+                <h4>Real-time Data Sync Pipeline:</h4>
+                <div class="flow-box">QR Scan → Application Data</div>
+                <div class="arrow">↓</div>
+                <div class="flow-box">Application Form → API Gateway → PostgreSQL Database</div>
+                <div class="arrow">↓</div>
+                <div class="flow-box">Profile Creation → Direct DB Write → Automation Triggers</div>
+                <div class="arrow">↓</div>
+                <div class="flow-box">DocuSeal API ← Auto-populate ← Database Query</div>
+                <div class="arrow">↓</div>
+                <div class="flow-box">Google Classroom API ← Enrollment ← Completion Verification</div>
+                <div class="arrow">↓</div>
+                <div class="flow-box">Analytics Dashboard ← Aggregated Views ← All Data Sources</div>
+            </div>
+
+            <div class="pipeline-section">
+                <h4>Integration Methods:</h4>
+                <div class="tech-list">
+                    <span class="tech-tag">PostgreSQL with real-time replication</span>
+                    <span class="tech-tag">REST API with OAuth 2.0</span>
+                    <span class="tech-tag">Webhook Receivers</span>
+                    <span class="tech-tag">Event-based workflows</span>
+                </div>
+            </div>
+
+            <h3>3. Automated KPI Tracking Configuration</h3>
+            <p style="margin-bottom: 20px; font-weight: 500; color: #00d4ff;">All metrics are designed to be automatically collected and downloadable without human input, essential for scalability:</p>
+
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <h4>Youth Engagement KPIs (Fully Automated)</h4>
+                    <ul>
+                        <li><strong>Sign-Up to Onboarding Conversion Rate</strong><br>
+                            Trigger: Application timestamp vs Profile completion timestamp<br>
+                            Auto-calculated from completion flags in CRM</li>
+                        <li><strong>Intern Retention Rate</strong><br>
+                            Data sources: Course progress API + Attendance logs + Internship completion records<br>
+                            Formula: (Completed internships / Started internships) × 100<br>
+                            Update frequency: Real-time</li>
+                        <li><strong>Weekly Report Compliance Rate</strong><br>
+                            Automation: Google Forms → Sheets API → Database<br>
+                            Alert system: Automated email if missing by Friday 5 PM<br>
+                            Dashboard update: Instant upon submission</li>
+                    </ul>
+                </div>
+
+                <div class="kpi-card">
+                    <h4>Learning Outcomes KPIs (Fully Automated)</h4>
+                    <ul>
+                        <li><strong>Training Completion Rate</strong><br>
+                            Tracked via LMS course progress API<br>
+                            Auto-verified through completion checklists</li>
+                        <li><strong>Certificate Generation</strong><br>
+                            Trigger: Course completion (all modules 100%, quizzes passed)<br>
+                            Process: Database verification → PDF auto-generation → Unique ID assignment → Auto-email with download link → Certificate logged in profile</li>
+                        <li><strong>Average Course Grade</strong><br>
+                            Real-time calculation from quiz/test scores<br>
+                            Aggregated across all learners in dashboard</li>
+                    </ul>
+                </div>
+
+                <div class="kpi-card">
+                    <h4>Host Satisfaction KPIs (Hybrid Automation)</h4>
+                    <ul>
+                        <li><strong>Automated Components:</strong><br>
+                            • Internship plan upload tracking<br>
+                            • Weekly report submission monitoring<br>
+                            • Re-engagement survey deployment and response tracking</li>
+                        <li><strong>Manual Review Required:</strong><br>
+                            • Quality assessment of host feedback content<br>
+                            • Incident report evaluation and response<br>
+                            • Final internship placement approval</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- User Journey Through Integrated System -->
+        <section class="section">
+            <h2>4. User Journey Through Integrated System</h2>
+            
+            <div class="step-container">
+                <h4><span class="step-number">1</span>Smart QR Code Activation</h4>
+                <ul style="list-style: none; padding-left: 40px;">
+                    <li>• Data captured: Location, time, campaign source</li>
+                    <li>• Instant redirect to Club Stride application</li>
+                    <li>• Tracking begins for conversion metrics</li>
+                </ul>
+            </div>
+
+            <div class="step-container">
+                <h4><span class="step-number">2</span>Application via Club Stride Website</h4>
+                <ul style="list-style: none; padding-left: 40px;">
+                    <li>• Google Form integration captures all applicant data</li>
+                    <li>• Automatic data transfer to PostgreSQL database</li>
+                    <li>• Triggers profile creation invitation</li>
+                </ul>
+            </div>
+
+            <div class="step-container">
+                <h4><span class="step-number">3</span>Alumni-Network Profile Creation</h4>
+                <ul style="list-style: none; padding-left: 40px;">
+                    <li>• Account setup with progress tracking</li>
+                    <li>• Each section completion logged for analytics</li>
+                    <li>• Profile completion triggers document workflow</li>
+                </ul>
+            </div>
+
+            <div class="step-container">
+                <h4><span class="step-number">4</span>Automated Document Workflow</h4>
+                <ul style="list-style: none; padding-left: 40px;">
+                    <li>• DocuSeal API auto-populates known fields</li>
+                    <li>• Smart routing based on age (parent consent if under 18)</li>
+                    <li>• All signatures timestamped and logged</li>
+                    <li>• Documents: Program agreement, W-9, parent consent</li>
+                </ul>
+            </div>
+
+            <div class="step-container">
+                <h4><span class="step-number">5</span>Onboarding Verification</h4>
+                <p style="padding-left: 40px;">System runs automated completion check:</p>
+                <ul style="list-style: none; padding-left: 40px;">
+                    <li>✓ Profile 100% complete</li>
+                    <li>✓ All documents signed</li>
+                    <li>✓ Technical requirements met</li>
+                    <li>✓ Age and availability verified</li>
+                    <li>• Automatic routing to learning management</li>
+                </ul>
+            </div>
+
+            <div class="step-container">
+                <h4><span class="step-number">6</span>Course Access & Training</h4>
+                <ul style="list-style: none; padding-left: 40px;">
+                    <li>• Google Classroom auto-enrollment upon verification</li>
+                    <li>• eLearning platform access granted</li>
+                    <li>• Progress tracking begins immediately</li>
+                </ul>
+            </div>
+
+            <div class="step-container">
+                <h4><span class="step-number">7</span>Internship Placement & Monitoring</h4>
+                <ul style="list-style: none; padding-left: 40px;">
+                    <li>• Weekly progress reports auto-collected</li>
+                    <li>• Attendance and hours tracked</li>
+                    <li>• Final evaluations trigger completion certificates</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Manual Oversight Requirements -->
+        <section class="manual-oversight">
+            <h2>5. Manual Oversight Requirements</h2>
+            <p style="margin-bottom: 20px;">While the system is designed for maximum automation, specific points require human verification:</p>
+            
+            <h3>Application Review (Edge Cases Only):</h3>
+            <ul style="list-style: none; padding-left: 20px;">
+                <li>• Out-of-county applicants</li>
+                <li>• Age verification conflicts</li>
+                <li>• Technical requirement waivers</li>
+                <li>• Special accommodation requests</li>
+            </ul>
+
+            <h3>Capstone Project Review:</h3>
+            <ul style="list-style: none; padding-left: 20px;">
+                <li>• AI flags projects for human review if confidence < 85%</li>
+                <li>• Staff reviews flagged submissions within 48 hours</li>
+                <li>• Final approval before internship placement</li>
+            </ul>
+
+            <h3>Host Placement Matching:</h3>
+            <ul style="list-style: none; padding-left: 20px;">
+                <li>• Program manager makes final assignments</li>
+                <li>• Consider intern preferences and host requirements</li>
+            </ul>
+
+            <h3>Incident Response:</h3>
+            <ul style="list-style: none; padding-left: 20px;">
+                <li>• Any reported incidents require immediate manual review</li>
+                <li>• Legal compliance verification</li>
+                <li>• 24-hour response requirement for host notifications</li>
+            </ul>
+        </section>
+
+        <!-- Reporting Dashboard Features -->
+        <section class="section">
+            <h2>6. Reporting Dashboard Features</h2>
+            
+            <div class="dashboard-features">
+                <div class="feature-box">
+                    <h5>Real-Time Analytics Display:</h5>
+                    <ul style="list-style: none;">
+                        <li>• Live enrollment numbers by county</li>
+                        <li>• Course completion rates by track</li>
+                        <li>• Internship placement status</li>
+                        <li>• Weekly report compliance percentages</li>
+                        <li>• Host satisfaction ratings</li>
+                        <li>• Certificate issuance tracking</li>
+                    </ul>
+                </div>
+
+                <div class="feature-box">
+                    <h5>Automated Report Generation:</h5>
+                    <ul style="list-style: none;">
+                        <li>• Weekly summary emails to leadership</li>
+                        <li>• Monthly funder reports with key metrics</li>
+                        <li>• Quarterly impact assessments</li>
+                        <li>• Annual comprehensive review</li>
+                    </ul>
+                </div>
+
+                <div class="feature-box">
+                    <h5>Data Export Capabilities:</h5>
+                    <ul style="list-style: none;">
+                        <li>• One-click CSV downloads for all metrics</li>
+                        <li>• Customizable date ranges</li>
+                        <li>• Filterable by county, program track, or cohort</li>
+                        <li>• API access for external reporting tools</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technical Infrastructure Requirements -->
+        <section class="section">
+            <h2>7. Technical Infrastructure Requirements</h2>
+            <h3>Future Enhancements:</h3>
+            <div class="tech-list">
+                <span class="tech-tag">Machine learning for improved intern-host matching</span>
+                <span class="tech-tag">Predictive analytics for dropout prevention</span>
+                <span class="tech-tag">Natural language processing for report analysis</span>
+                <span class="tech-tag">Mobile app development for increased accessibility</span>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>Digital Futures Initiative - System Architecture Documentation</p>
+        <p>© 2025 Club Stride Inc.</p>
+    </footer>
+</body>
+</html>
