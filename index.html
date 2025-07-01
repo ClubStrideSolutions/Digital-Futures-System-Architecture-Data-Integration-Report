@@ -180,6 +180,53 @@
             text-align: center;
         }
 
+        .executive-summary h3 {
+            color: var(--secondary-color);
+            font-size: 20px;
+            margin: 25px 0 15px;
+        }
+
+        /* Bottom Line Section */
+        .bottom-line-section {
+            background: var(--bg-dark);
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .bottom-line-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .bottom-line-card {
+            background: var(--bg-light);
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .bottom-line-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(44, 87, 250, 0.3);
+        }
+
+        .bottom-line-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .executive-summary h3 {
+            color: var(--secondary-color);
+            font-size: 20px;
+            margin: 25px 0 15px;
+        }
+
         /* Key Metrics Dashboard */
         .metrics-dashboard {
             display: grid;
@@ -249,6 +296,41 @@
             color: var(--secondary-color);
             font-size: 24px;
             margin: 25px 0 15px;
+        }
+
+        /* Bottom Line Section */
+        .bottom-line-section {
+            background: var(--bg-dark);
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .bottom-line-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .bottom-line-card {
+            background: var(--bg-light);
+            border: 1px solid #333;
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .bottom-line-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(44, 87, 250, 0.3);
+        }
+
+        .bottom-line-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
         }
 
         /* New Introduction Section */
@@ -345,6 +427,7 @@
 
         /* Status Colors */
         .status-operational { background: #28a745; color: white; }
+        .status-active { background: #28a745; color: white; }
         .status-development { background: #ff6b35; color: white; }
         .status-planned { background: #6c757d; color: white; }
         .status-redesign { background: #17a2b8; color: white; }
@@ -503,6 +586,60 @@
         }
 
         .ownership-table tr:hover {
+            background: var(--bg-light);
+        }
+
+        /* Contractor Table */
+        .contractor-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-dark);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .contractor-table th {
+            background: var(--secondary-color);
+            color: var(--bg-dark);
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .contractor-table td {
+            padding: 15px;
+            border-bottom: 1px solid #333;
+        }
+
+        .contractor-table tr:hover {
+            background: var(--bg-light);
+        }
+
+        /* Contractor Table */
+        .contractor-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-dark);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .contractor-table th {
+            background: var(--secondary-color);
+            color: var(--bg-dark);
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .contractor-table td {
+            padding: 15px;
+            border-bottom: 1px solid #333;
+        }
+
+        .contractor-table tr:hover {
             background: var(--bg-light);
         }
 
@@ -820,28 +957,172 @@
                     <p style="color: var(--secondary-color); margin-top: 20px;">
                         System Architecture & Implementation Report<br>
                         Designed by Club Stride's Innovation Team<br>
-                        Updated: June 23, 2025
+                        Updated: June 24, 2025
                     </p>
                     <div style="background: var(--bg-medium); border: 1px solid var(--secondary-color); border-radius: 8px; padding: 15px; margin-top: 20px; font-size: 0.9rem;">
                         <p style="color: var(--text-secondary); text-align: center; margin: 0;">
                             <strong>Intellectual Property Notice:</strong> All systems and platform components are proprietary to Club Stride Inc. and were developed in-house or through contracted work-for-hire agreements.
                         </p>
                     </div>
+
+                <div class="section">
+                    <h2>Development Status & Timeline</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 30px;">
+                        The Digital Futures Initiative platform is actively under development with several core components already 
+                        operational and others in various stages of completion. To ensure transparency with our funders and partners, 
+                        we provide the following development timeline:
+                    </p>
+                    
+                    <h3>Operational Components (Currently Live)</h3>
+                    <ul style="list-style: none; margin-left: 20px;">
+                        <li>• Digital Attendance management system</li>
+                        <li>• Alumni Portal (basic functionality)</li>
+                        <li>• Enhanced Alumni Portal UI/UX refresh</li>
+                        <li>• Online Course Platform</li>
+                    </ul>
+                    
+                    <h3>In Active Development (Expected Q3 2025)</h3>
+                    <ul style="list-style: none; margin-left: 20px;">
+                        <li>• AI Resume Builder and career services tools</li>
+                        <li>• AI-powered webcam proctoring for assessments</li>
+                        <li>• Automated Reporting Dashboard - Real-time KPI tracking and funder report generation</li>
+                        <li>• Full LMS Integration - Complete learning management system with course delivery, assessment tools, and progress tracking</li>
+                        <li>• DocuSeal integration for automated document workflows</li>
+                    </ul>
+                    
+                    <p style="font-size: 1.1rem; margin-top: 20px;">
+                        <strong>Commitment to Delivery:</strong> All components marked "In Development" are actively being built by 
+                        our technical team and contracted specialists.
+                    </p>
+                </div>
+
+                <div class="section">
+                    <h2>Manual Oversight Requirements</h2>
+                    <p style="margin-bottom: 20px;">While the system is designed for maximum automation, specific points require human verification:</p>
+                    
+                    <h3>Application Review (Edge Cases Only)</h3>
+                    <ul style="list-style: none; margin-left: 20px;">
+                        <li>• Out-of-county applicants</li>
+                        <li>• Age verification conflicts</li>
+                        <li>• Technical requirement waivers</li>
+                        <li>• Special accommodation requests</li>
+                    </ul>
+                    
+                    <h3>Capstone Project Review</h3>
+                    <ul style="list-style: none; margin-left: 20px;">
+                        <li>• AI flags projects for human review if confidence < 85%</li>
+                        <li>• Staff reviews flagged submissions within 48 hours</li>
+                        <li>• Final approval before internship placement</li>
+                    </ul>
+                    
+                    <h3>Host Placement Matching</h3>
+                    <ul style="list-style: none; margin-left: 20px;">
+                        <li>• Program manager makes final assignments</li>
+                        <li>• Consider intern preferences and host requirements</li>
+                    </ul>
+                    
+                    <h3>Incident Response</h3>
+                    <ul style="list-style: none; margin-left: 20px;">
+                        <li>• Any reported incidents require immediate manual review</li>
+                        <li>• Legal compliance verification</li>
+                        <li>• 24-hour response requirement for host notifications</li>
+                    </ul>
+                </div>
+
+                <div class="bottom-line-section">
+                    <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 30px;">The Bottom Line</h2>
+                    <div class="bottom-line-grid">
+                        <div class="bottom-line-card">
+                            <h4>For Youth</h4>
+                            <p>A complete career launch pad that transforms lives—free professional training, paid internships providing meaningful income, 
+                            industry-recognized certificates that open doors at major companies, and ongoing career support—all accessible 24/7 from any smartphone.</p>
+                        </div>
+                        <div class="bottom-line-card">
+                            <h4>For Host Organizations</h4>
+                            <p>Immediate access to motivated, pre-trained talent who arrive ready to execute real digital marketing campaigns from day one. 
+                            Partners report saving 40+ hours of training time per intern while gaining fresh perspectives and measurable contributions to their 
+                            social media engagement, email marketing, and content creation—all at zero cost to the organization.</p>
+                        </div>
+                        <div class="bottom-line-card">
+                            <h4>For Club Stride</h4>
+                            <p>A revolutionary system that scales effortlessly—from serving 70 youth today to thousands across California tomorrow—while 
+                            maintaining quality and reducing per-youth costs through automation.</p>
+                        </div>
+                        <div class="bottom-line-card">
+                            <h4>For Funders</h4>
+                            <p>Complete transparency with real-time dashboards tracking every outcome, from first QR scan to internship completion, 
+                            with one-click reports proving ROI and impact across all demographics and regions.</p>
+                        </div>
+                    </div>
+                </div>
                 </div>
 
                 <div class="executive-summary">
                     <h2>Executive Summary</h2>
+                    
+                    <h3>Purpose & Vision</h3>
                     <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 20px;">
-                        <strong>The Digital Futures Initiative represents a groundbreaking approach to youth workforce development through technology.</strong> 
-                        Our integrated digital ecosystem transforms how marginalized youth ages 16-24 access career training, complete internships, 
-                        and build professional skills in digital marketing.
+                        The Digital Futures Initiative (DFI) is Club Stride's next-generation workforce pathway for marginalized youth ages 16-24. 
+                        By combining mobile-first recruitment, self-paced e-learning, and automated internship placement, DFI removes traditional 
+                        barriers to high-quality job training and positions young people for careers in digital marketing and related fields.
                     </p>
                     
-                    <p style="font-size: 1.1rem; line-height: 1.8;">
-                        The platform eliminates traditional barriers by providing 24/7 access to professional-grade video courses, 
-                        AI-powered resume building, and real-world internship opportunities with local businesses. Every interaction 
-                        is tracked automatically, ensuring we can demonstrate impact to funders and continuously improve our services.
+                    <h3>The Challenge We Solve</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px;">
+                        Our data revealed that bureaucracy & ID anxiety creates self-reinforcing avoidance—the more complex the paperwork, 
+                        the less likely youth are to even try. Traditional job training programs lose 40% of participants before they even start due to:
                     </p>
+                    <ul style="list-style: none; margin-left: 20px; margin-bottom: 20px;">
+                        <li>• Multiple office visits to complete forms</li>
+                        <li>• Requirements for documents youth don't have readily available</li>
+                        <li>• Weeks of "did you get my paperwork?" uncertainty</li>
+                        <li>• In-person attendance that conflicts with work schedules</li>
+                        <li>• Transportation barriers that turn simple tasks into day-long journeys</li>
+                    </ul>
+                    
+                    <h3>Our Solution</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 15px;">
+                        DFI eliminates these barriers entirely. We've built an "always-open door" to professional careers where youth can start 
+                        their journey anytime, anywhere—scanning a QR code at a bus stop, applying from their phone at home, or walking into a library. 
+                        Our automated systems handle the paperwork maze for them. Within days, they're learning in-demand digital marketing skills 
+                        and earning while they learn.
+                    </p>
+                    
+                    <h3>How the System Works</h3>
+                    <ol style="margin-left: 20px; font-size: 1.1rem; line-height: 1.8;">
+                        <li><strong>Instant Entry</strong> – Youth scan a QR code or click a link for a 2-minute application</li>
+                        <li><strong>Automated Verification</strong> – DocuSeal auto-populates all required forms using their application data; digital signatures collected in 24-48 hours</li>
+                        <li><strong>Auto-Enrollment & Training</strong> – Platform automatically enrolls youth in 12+ hours of video courses with quizzes, real certificates, and progress tracking</li>
+                        <li><strong>Internship Matching</strong> – AI-powered resume builder and skills dashboard connect graduates to paid 4-8 week remote internships with digital marketing firms and tech companies</li>
+                        <li><strong>Ongoing Monitoring</strong> – Weekly reports, attendance logs, and performance data feed a live dashboard—no manual data entry needed</li>
+                    </ol>
+                </div>
+
+                <div class="bottom-line-section">
+                    <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 30px;">The Bottom Line</h2>
+                    <div class="bottom-line-grid">
+                        <div class="bottom-line-card">
+                            <h4>For Youth</h4>
+                            <p>A complete career launch pad that transforms lives—free professional training, paid internships providing meaningful income, 
+                            industry-recognized certificates that open doors at major companies, and ongoing career support—all accessible 24/7 from any smartphone.</p>
+                        </div>
+                        <div class="bottom-line-card">
+                            <h4>For Host Organizations</h4>
+                            <p>Immediate access to motivated, pre-trained talent who arrive ready to execute real digital marketing campaigns from day one. 
+                            Partners report saving 40+ hours of training time per intern while gaining fresh perspectives and measurable contributions to their 
+                            social media engagement, email marketing, and content creation—all at zero cost to the organization.</p>
+                        </div>
+                        <div class="bottom-line-card">
+                            <h4>For Club Stride</h4>
+                            <p>A revolutionary system that scales effortlessly—from serving 70 youth today to thousands across California tomorrow—while 
+                            maintaining quality and reducing per-youth costs through automation.</p>
+                        </div>
+                        <div class="bottom-line-card">
+                            <h4>For Funders</h4>
+                            <p>Complete transparency with real-time dashboards tracking every outcome, from first QR scan to internship completion, 
+                            with one-click reports proving ROI and impact across all demographics and regions.</p>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="section">
@@ -1061,7 +1342,6 @@
                                 <th>Current Owner</th>
                                 <th>Long-Term Owner</th>
                                 <th>Status</th>
-                                <th>Maintenance Type</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -1069,73 +1349,186 @@
                                 <td>Digital Futures Operations</td>
                                 <td>Digital Programs</td>
                                 <td>Digital Programs Manager</td>
-                                <td><span class="status-badge status-operational">✓ Active</span></td>
-                                <td>In-House</td>
+                                <td><span class="status-badge status-active">✓ Active</span></td>
                             </tr>
                             <tr>
                                 <td>Alumni Portal</td>
                                 <td>Platform Administration</td>
                                 <td>Platform Administrator</td>
                                 <td><span class="status-badge status-operational">✓ Operational</span></td>
-                                <td>In-House</td>
-                            </tr>
-                            <tr>
-                                <td>Video Cource Platform</td>
-                                <td>Educational Technology</td>
-                                <td>Program Instructors</td>
-                                <td><span class="status-badge status-operational">✓ Operational</span></td>
-                                <td>In-House</td>
-                            </tr>
-                            <tr>
-                                <td>Alumni Portal UI Refresh</td>
-                                <td>Contractor</td>
-                                <td>Platform Administrator</td>
-                                <td><span class="status-badge status-operational">✓ Operational</span></td>
-                                <td>In-House</td>
                             </tr>
                             <tr>
                                 <td>Club Stride Website</td>
-                                <td>Contractor (TBD)</td>
+                                <td>Website Administrator</td>
                                 <td>Website Administrator</td>
                                 <td><span class="status-badge status-operational">✓ Operational</span></td>
-                                <td>Contractor</td>
+                            </tr>
+                            <tr>
+                                <td>Video Course eLearning Platform</td>
+                                <td>Platform Administration</td>
+                                <td>Platform Administration</td>
+                                <td><span class="status-badge status-operational">✓ Operational</span></td>
                             </tr>
                             <tr>
                                 <td>DocuSeal Integration</td>
                                 <td>Operations</td>
                                 <td>Operations Manager</td>
-                                <td><span class="status-badge status-planned">📋 Planned</span></td>
-                                <td>Contractor</td>
+                                <td><span class="status-badge status-development">🚧 Development</span></td>
                             </tr>
                             <tr>
                                 <td>Database Management</td>
                                 <td>Data Services</td>
                                 <td>Database Administrator</td>
                                 <td><span class="status-badge status-planned">📋 Planned</span></td>
-                                <td>Contractor</td>
                             </tr>
                             <tr>
                                 <td>AI Resume Builder</td>
                                 <td>Career Services</td>
                                 <td>Career Services Lead</td>
                                 <td><span class="status-badge status-planned">📋 Planned</span></td>
-                                <td>Contractor</td>
                             </tr>
                             <tr>
                                 <td>Reporting System & Dashboard</td>
                                 <td>Data Engineering</td>
                                 <td>Data Engineer</td>
                                 <td><span class="status-badge status-planned">📋 Planned</span></td>
-                                <td>Contractor</td>
                             </tr>
                             <tr>
-                                <td>AI Webcam Proctoring</td>
-                                <td>Contractor</td>
-                                <td>Platform Administrator</td>
+                                <td>Classroom eLearning Platform</td>
+                                <td>Educational Technology</td>
+                                <td>Program Instructors</td>
                                 <td><span class="status-badge status-planned">📋 Planned</span></td>
-                                <td>Contractor</td>
                             </tr>
-                            
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Contractor Development Scope -->
+                <div class="section">
+                    <h2>Contractor Development Scope & Timeline</h2>
+                    <table class="contractor-table">
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Category</th>
+                                <th>Owner / Deliverable</th>
+                                <th>Contractor Clarification</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Alumni Portal — profiles, dashboards, messaging</td>
+                                <td>Bought & Customized In-House</td>
+                                <td>Platform Administrator</td>
+                                <td>None Needed</td>
+                            </tr>
+                            <tr>
+                                <td>Alumni Portal interface refresh</td>
+                                <td>Built In-House</td>
+                                <td>Deliverable: unified UI/UX matching eLearning platform</td>
+                                <td>None Needed</td>
+                            </tr>
+                            <tr>
+                                <td>Zoom integration</td>
+                                <td>Built In-House</td>
+                                <td>Embedded meeting support</td>
+                                <td>None Needed</td>
+                            </tr>
+                            <tr>
+                                <td>AI webcam proctoring add-on</td>
+                                <td>Contractor Task</td>
+                                <td>Deliverable: live proctoring module integrated with LMS quizzes</td>
+                                <td>Specialized EdTech AI Contractor - Expert in computer vision, behavioral analysis, and LMS integration for academic integrity solutions</td>
+                            </tr>
+                            <tr>
+                                <td>DocuSeal integration</td>
+                                <td>Contractor Task</td>
+                                <td>Automated consent & tax forms</td>
+                                <td>API Integration Specialist - Developer experienced with document automation platforms and legal compliance workflows</td>
+                            </tr>
+                            <tr>
+                                <td>AI Resume Builder</td>
+                                <td>Contractor Task</td>
+                                <td>Deployed in Career-Services hub</td>
+                                <td>AI/ML Career Tech Contractor - Specialist in natural language processing, resume optimization algorithms, and career services platforms</td>
+                            </tr>
+                            <tr>
+                                <td>eLearning Platform</td>
+                                <td>Contractor Task</td>
+                                <td>Assignment submissions, participation data</td>
+                                <td>Independent LMS Developer - EdTech contractor specializing in custom learning management systems with assessment and analytics capabilities</td>
+                            </tr>
+                            <tr>
+                                <td>AI Analytics Dashboard</td>
+                                <td>Contractor Task</td>
+                                <td>All metrics are designed to be automatically collected and downloadable without human input, essential for scalability</td>
+                                <td>Business Intelligence & Data Analytics Contractor - Specialist in automated reporting systems, KPI dashboards, and real-time data visualization for nonprofit impact measurement</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Contractor Development Scope -->
+                <div class="section">
+                    <h2>Contractor Development Scope & Timeline</h2>
+                    <table class="contractor-table">
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Category</th>
+                                <th>Owner / Deliverable</th>
+                                <th>Contractor Clarification</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Alumni Portal — profiles, dashboards, messaging</td>
+                                <td>Bought & Customized In-House</td>
+                                <td>Platform Administrator</td>
+                                <td>None Needed</td>
+                            </tr>
+                            <tr>
+                                <td>Alumni Portal interface refresh</td>
+                                <td>Built In-House</td>
+                                <td>Deliverable: unified UI/UX matching eLearning platform</td>
+                                <td>None Needed</td>
+                            </tr>
+                            <tr>
+                                <td>Zoom integration</td>
+                                <td>Built In-House</td>
+                                <td>Embedded meeting support</td>
+                                <td>None Needed</td>
+                            </tr>
+                            <tr>
+                                <td>AI webcam proctoring add-on</td>
+                                <td>Contractor Task</td>
+                                <td>Deliverable: live proctoring module integrated with LMS quizzes</td>
+                                <td>Specialized EdTech AI Contractor - Expert in computer vision, behavioral analysis, and LMS integration for academic integrity solutions</td>
+                            </tr>
+                            <tr>
+                                <td>DocuSeal integration</td>
+                                <td>Contractor Task</td>
+                                <td>Automated consent & tax forms</td>
+                                <td>API Integration Specialist - Developer experienced with document automation platforms and legal compliance workflows</td>
+                            </tr>
+                            <tr>
+                                <td>AI Resume Builder</td>
+                                <td>Contractor Task</td>
+                                <td>Deployed in Career-Services hub</td>
+                                <td>AI/ML Career Tech Contractor - Specialist in natural language processing, resume optimization algorithms, and career services platforms</td>
+                            </tr>
+                            <tr>
+                                <td>eLearning Platform</td>
+                                <td>Contractor Task</td>
+                                <td>Assignment submissions, participation data</td>
+                                <td>Independent LMS Developer - EdTech contractor specializing in custom learning management systems with assessment and analytics capabilities</td>
+                            </tr>
+                            <tr>
+                                <td>AI Analytics Dashboard</td>
+                                <td>Contractor Task</td>
+                                <td>All metrics are designed to be automatically collected and downloadable without human input, essential for scalability</td>
+                                <td>Business Intelligence & Data Analytics Contractor - Specialist in automated reporting systems, KPI dashboards, and real-time data visualization for nonprofit impact measurement</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
@@ -1159,7 +1552,7 @@
                                 <span class="owner-tag">In-House: Platform Team</span>
                                 <div class="component-header">
                                     <div class="component-title">QR Code Scanner</div>
-                                    <span class="status-badge status-pending">In Development</span>
+                                    <span class="status-badge status-development">🚧 Development</span>
                                 </div>
                                 <p>Smart tracking captures where youth heard about us, helping us improve outreach.</p>
                                 <div class="role-badges">
@@ -1168,10 +1561,10 @@
                                 </div>
                             </div>
                             <div class="component-card">
-                                <span class="owner-tag">Contractor</span>
+                                <span class="owner-tag">In-House</span>
                                 <div class="component-header">
                                     <div class="component-title">Website Application</div>
-                                    <span class="status-badge status-pending">In Development</span>
+                                    <span class="status-badge status-operational">✓ Operational</span>
                                 </div>
                                 <p>Simple online form collects basic info and automatically creates their account.</p>
                                 <div class="role-badges">
@@ -1183,7 +1576,7 @@
                                 <span class="owner-tag">In-House: Platform Team</span>
                                 <div class="component-header">
                                     <div class="component-title">Alumni Portal</div>
-                                    <span class="status-badge status-pending">Redesign</span>
+                                    <span class="status-badge status-operational">✓ Operational</span>
                                 </div>
                                 <p>Personal dashboard where youth track progress, access courses, and connect with opportunities.</p>
                                 <div class="role-badges">
@@ -1206,7 +1599,7 @@
                                 <span class="owner-tag">In-House: Operations</span>
                                 <div class="component-header">
                                     <div class="component-title">DocuSeal Integration</div>
-                                    <span class="status-badge status-pending">In Development</span>
+                                    <span class="status-badge status-development">🚧 Development</span>
                                 </div>
                                 <p>Digital forms auto-fill with their info. Parents sign consent if under 18. All paperwork done in minutes, not days.</p>
                                 <div class="role-badges">
@@ -1219,7 +1612,7 @@
                                 <span class="owner-tag">In-House: System</span>
                                 <div class="component-header">
                                     <div class="component-title">Smart Verification</div>
-                                    <span class="status-badge status-pending">In Development</span>
+                                    <span class="status-badge status-development">🚧 Development</span>
                                 </div>
                                 <p>System checks age, location, and completeness. Flags special cases for staff review. Most youth approved instantly.</p>
                                 <div class="role-badges">
@@ -1241,7 +1634,7 @@
                                 <span class="owner-tag">In-House: Ed Tech</span>
                                 <div class="component-header">
                                     <div class="component-title">eLearning Platform</div>
-                                    <span class="status-badge status-pending">In Development</span>
+                                    <span class="status-badge status-operational">✓ Operational</span>
                                 </div>
                                 <p>Watch videos, take quizzes, complete projects. Learn at your own pace. Get certificates that mean something to employers.</p>
                                 <div class="role-badges">
@@ -1253,7 +1646,7 @@
                                 <span class="owner-tag">External API</span>
                                 <div class="component-header">
                                     <div class="component-title">Google Classroom</div>
-                                    <span class="status-badge status-pending">In Development</span>
+                                    <span class="status-badge status-planned">📋 Planned</span>
                                 </div>
                                 <p>Extra resources, group discussions, and instructor support. Familiar platform many youth already know.</p>
                                 <div class="role-badges">
@@ -1265,7 +1658,7 @@
                                 <span class="owner-tag">In-House: Ed Tech</span>
                                 <div class="component-header">
                                     <div class="component-title">Live Sessions</div>
-                                    <span class="status-badge status-pending">In Development</span>
+                                    <span class="status-badge status-operational">✓ Operational</span>
                                 </div>
                                 <p>Weekly Zoom classes for questions and networking. Attendance tracked automatically. Recordings available for those who miss.</p>
                                 <div class="role-badges">
@@ -1288,7 +1681,7 @@
                                 <span class="owner-tag">In-House: Career Services</span>
                                 <div class="component-header">
                                     <div class="component-title">AI Resume Builder</div>
-                                    <span class="status-badge status-pending">In Development</span>
+                                    <span class="status-badge status-planned">📋 Planned</span>
                                 </div>
                                 <p>Creates professional resumes from their experience. Suggests improvements. Tailors to each opportunity.</p>
                                 <div class="role-badges">
@@ -1299,7 +1692,7 @@
                                 <span class="owner-tag">In-House: Digital Programs</span>
                                 <div class="component-header">
                                     <div class="component-title">Smart Matching</div>
-                                    <span class="status-badge status-pending">In Development</span>
+                                    <span class="status-badge status-development">🚧 Development</span>
                                 </div>
                                 <p>Pairs youth skills with host needs. Considers location, interests, and schedule. Everyone gets the right fit.</p>
                                 <div class="role-badges">
@@ -1311,7 +1704,7 @@
                                 <span class="owner-tag">In-House: Data Services</span>
                                 <div class="component-header">
                                     <div class="component-title">Progress Tracking</div>
-                                    <span class="status-badge status-pending">In Development</span>
+                                    <span class="status-badge status-development">🚧 Development</span>
                                 </div>
                                 <p>Weekly check-ins from youth and hosts. Issues flagged early. Success stories captured for funders.</p>
                                 <div class="role-badges">
@@ -1485,6 +1878,70 @@
                         <h4>Step 7: Impact Measurement</h4>
                         <p>All data aggregated → KPI calculations → Automated reports → Dashboard updates</p>
                     </div>
+                </div>
+
+                <div class="section">
+                    <h2>Development Status & Timeline</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 30px;">
+                        The Digital Futures Initiative platform is actively under development with several core components already 
+                        operational and others in various stages of completion. To ensure transparency with our funders and partners, 
+                        we provide the following development timeline:
+                    </p>
+                    
+                    <h3>Operational Components (Currently Live)</h3>
+                    <ul style="list-style: none; margin-left: 20px;">
+                        <li>• Digital Attendance management system</li>
+                        <li>• Alumni Portal (basic functionality)</li>
+                        <li>• Enhanced Alumni Portal UI/UX refresh</li>
+                        <li>• Online Course Platform</li>
+                    </ul>
+                    
+                    <h3>In Active Development (Expected Q3 2025)</h3>
+                    <ul style="list-style: none; margin-left: 20px;">
+                        <li>• AI Resume Builder and career services tools</li>
+                        <li>• AI-powered webcam proctoring for assessments</li>
+                        <li>• Automated Reporting Dashboard - Real-time KPI tracking and funder report generation</li>
+                        <li>• Full LMS Integration - Complete learning management system with course delivery, assessment tools, and progress tracking</li>
+                        <li>• DocuSeal integration for automated document workflows</li>
+                    </ul>
+                    
+                    <p style="font-size: 1.1rem; margin-top: 20px;">
+                        <strong>Commitment to Delivery:</strong> All components marked "In Development" are actively being built by 
+                        our technical team and contracted specialists.
+                    </p>
+                </div>
+
+                <div class="section">
+                    <h2>Manual Oversight Requirements</h2>
+                    <p style="margin-bottom: 20px;">While the system is designed for maximum automation, specific points require human verification:</p>
+                    
+                    <h3>Application Review (Edge Cases Only)</h3>
+                    <ul style="list-style: none; margin-left: 20px;">
+                        <li>• Out-of-county applicants</li>
+                        <li>• Age verification conflicts</li>
+                        <li>• Technical requirement waivers</li>
+                        <li>• Special accommodation requests</li>
+                    </ul>
+                    
+                    <h3>Capstone Project Review</h3>
+                    <ul style="list-style: none; margin-left: 20px;">
+                        <li>• AI flags projects for human review if confidence < 85%</li>
+                        <li>• Staff reviews flagged submissions within 48 hours</li>
+                        <li>• Final approval before internship placement</li>
+                    </ul>
+                    
+                    <h3>Host Placement Matching</h3>
+                    <ul style="list-style: none; margin-left: 20px;">
+                        <li>• Program manager makes final assignments</li>
+                        <li>• Consider intern preferences and host requirements</li>
+                    </ul>
+                    
+                    <h3>Incident Response</h3>
+                    <ul style="list-style: none; margin-left: 20px;">
+                        <li>• Any reported incidents require immediate manual review</li>
+                        <li>• Legal compliance verification</li>
+                        <li>• 24-hour response requirement for host notifications</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -1748,42 +2205,6 @@
                     <div class="flow-step">
                         <h4>4. Retention & Deletion</h4>
                         <p>Automated deletion based on legal requirements and user requests</p>
-                    </div>
-                </div>
-
-                <div class="section">
-                    <h2>Manual Oversight Points</h2>
-                    <p style="margin-bottom: 20px;">While the system maximizes automation, human review ensures quality and compliance:</p>
-                    
-                    <div class="components-grid">
-                        <div class="component-card" style="border-color: var(--danger);">
-                            <div class="component-title" style="color: var(--danger);">Application Review</div>
-                            <p>• Out-of-county applicants</p>
-                            <p>• Age verification conflicts</p>
-                            <p>• Special accommodations</p>
-                            <p>• Technical requirement waivers</p>
-                        </div>
-                        <div class="component-card" style="border-color: var(--danger);">
-                            <div class="component-title" style="color: var(--danger);">Capstone Review</div>
-                            <p>• AI confidence < 85%</p>
-                            <p>• 48-hour review window</p>
-                            <p>• Final approval required</p>
-                            <p>• Quality assurance check</p>
-                        </div>
-                        <div class="component-card" style="border-color: var(--danger);">
-                            <div class="component-title" style="color: var(--danger);">Host Matching</div>
-                            <p>• Manager makes assignments</p>
-                            <p>• Consider preferences</p>
-                            <p>• Match skills to needs</p>
-                            <p>• Geographic considerations</p>
-                        </div>
-                        <div class="component-card" style="border-color: var(--danger);">
-                            <div class="component-title" style="color: var(--danger);">Incident Response</div>
-                            <p>• Immediate review required</p>
-                            <p>• Legal compliance check</p>
-                            <p>• 24-hour response time</p>
-                            <p>• Documentation protocol</p>
-                        </div>
                     </div>
                 </div>
             </div>
